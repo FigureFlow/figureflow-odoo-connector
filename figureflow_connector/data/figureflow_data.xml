@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- AIDEV-NOTE: Default FigureFlow base URL. Admins can override this from
+         Settings > FigureFlow if connecting to a non-production environment. -->
+    <record id="figureflow_default_base_url" model="ir.config_parameter">
+        <field name="key">figureflow_connector.base_url</field>
+        <field name="value">https://app.figureflow.com</field>
+    </record>
+
+    <record id="figureflow_default_connection_status" model="ir.config_parameter">
+        <field name="key">figureflow_connector.connection_status</field>
+        <field name="value">disconnected</field>
+    </record>
+</odoo>

@@ -1,0 +1,26 @@
+# Translation template for the figureflow_connector module.
+# Run `python odoo-bin -d <db> --i18n-export ...` from Odoo to regenerate.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: figureflow_connector 18.0.1.0.0\n"
+"Report-Msgid-Bugs-To: support@figureflow.com\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Connect to FigureFlow"
+msgstr ""
+
+msgid "Open FigureFlow Dashboard"
+msgstr ""
+
+msgid "Disconnect"
+msgstr ""
+
+msgid "FigureFlow URL"
+msgstr ""
+
+msgid "Connection Status"
+msgstr ""
+
+msgid "FigureFlow disconnected"
+msgstr ""

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>FigureFlow — AI CFO</title>
+</head>
+<body>
+
+<section style="padding: 32px 16px; text-align: center; background: #0e1a2b; color: #f5f7fa;">
+    <h1 style="margin: 0 0 12px 0; font-size: 36px;">FigureFlow — AI CFO</h1>
+    <p style="margin: 0; font-size: 18px; color: #b8c5d6;">
+        Connect Odoo to FigureFlow's AI agents for reconciliation,
+        month-end close, KPIs and cash forecasting.
+    </p>
+</section>
+
+<section style="padding: 32px 24px; max-width: 920px; margin: 0 auto;">
+    <h2>What you get</h2>
+    <ul style="font-size: 16px; line-height: 1.7;">
+        <li><b>Automated reconciliation</b> — AI matches bank statements against your Odoo journal entries and proposes adjustments.</li>
+        <li><b>Month-end close</b> — Guided workflow with cut-off checks, accrual recommendations, opening-balance validation and approval gates.</li>
+        <li><b>40+ KPIs and threshold alerts</b> — Liquidity, profitability, solvency and efficiency metrics with daily/weekly digests.</li>
+        <li><b>Cash forecasting</b> — Driver-based projections with scenario modelling and WebSocket-powered real-time updates.</li>
+        <li><b>Management and annual reports</b> — AI-generated narratives, jurisdiction-aware compliance (SE, UK, CA).</li>
+    </ul>
+</section>
+
+<section style="padding: 32px 24px; max-width: 920px; margin: 0 auto;">
+    <h2>How it works</h2>
+    <ol style="font-size: 16px; line-height: 1.7;">
+        <li>Install this module.</li>
+        <li>Go to <i>Settings → FigureFlow</i> and click <b>Connect to FigureFlow</b>.</li>
+        <li>This module generates a personal Odoo API key, securely hands it to figureflow.com over HTTPS, and opens FigureFlow in a new tab.</li>
+        <li>Sign up or log in on FigureFlow to complete the connection.</li>
+        <li>FigureFlow syncs your chart of accounts, journal entries, partners and invoices, then activates the AI features.</li>
+    </ol>
+</section>
+
+<section style="padding: 32px 24px; max-width: 920px; margin: 0 auto; background: #f5f7fa;">
+    <h2>Data you share with FigureFlow</h2>
+    <p style="font-size: 16px; line-height: 1.7;">
+        After you click <b>Connect</b>, this module shares your Odoo URL,
+        database name, login and a freshly-generated personal API key with
+        figureflow.com. FigureFlow then uses those credentials to read:
+    </p>
+    <ul style="font-size: 16px; line-height: 1.7;">
+        <li>Chart of accounts (<code>account.account</code>)</li>
+        <li>Journal entries and lines (<code>account.move</code>, <code>account.move.line</code>)</li>
+        <li>Partners (<code>res.partner</code>)</li>
+        <li>Invoices and credit notes</li>
+        <li>Journals and tax definitions</li>
+    </ul>
+    <p style="font-size: 16px; line-height: 1.7;">
+        Credentials never travel through your browser; the handshake is
+        server-to-server over HTTPS. You can revoke access at any time by
+        deleting the API key from your Odoo user preferences or by clicking
+        <b>Disconnect</b> in the settings page. See the
+        <a href="https://www.figureflow.com/privacy">FigureFlow privacy policy</a>
+        for full details.
+    </p>
+</section>
+
+<section style="padding: 32px 24px; max-width: 920px; margin: 0 auto;">
+    <h2>Pricing</h2>
+    <p style="font-size: 16px; line-height: 1.7;">
+        This connector is <b>free</b>. FigureFlow's AI features are billed
+        separately through your FigureFlow subscription — sign up at
+        <a href="https://www.figureflow.com">figureflow.com</a>.
+    </p>
+</section>
+
+<section style="padding: 32px 24px; max-width: 920px; margin: 0 auto;">
+    <h2>Support</h2>
+    <p style="font-size: 16px; line-height: 1.7;">
+        Email <a href="mailto:support@figureflow.com">support@figureflow.com</a>
+        or visit <a href="https://www.figureflow.com">figureflow.com</a>.
+    </p>
+</section>
+
+</body>
+</html>

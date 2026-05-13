@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_figureflow_root"
+              name="FigureFlow"
+              web_icon="figureflow_connector,static/description/icon.png"
+              sequence="100"/>
+
+    <menuitem id="menu_figureflow_settings"
+              name="Settings"
+              parent="menu_figureflow_root"
+              action="action_figureflow_settings"
+              sequence="10"/>
+</odoo>
