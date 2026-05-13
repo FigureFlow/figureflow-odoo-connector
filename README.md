@@ -10,8 +10,8 @@ an AI-powered financial management platform.
 | Branch | Odoo version | Status |
 |---|---|---|
 | `18.0` (default) | Odoo 18.0 | Reference implementation |
-| `17.0` | Odoo 17.0 | TODO — port |
-| `19.0` | Odoo 19.0 | TODO — port |
+| `17.0` | Odoo 17.0 | Scaffolded, awaiting end-to-end test |
+| `19.0` | Odoo 19.0 | Scaffolded, awaiting end-to-end test |
 
 Each branch is a self-contained Odoo module compatible with its named Odoo
 release. Differences between branches are intentionally small (manifest
