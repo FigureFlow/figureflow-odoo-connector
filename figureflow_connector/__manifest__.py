@@ -1,6 +1,6 @@
 {
     "name": "FigureFlow — AI CFO",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Connect your Odoo to FigureFlow's AI CFO for reconciliation, "
                "month-end close, KPIs and cash forecasts.",
     "description": """
