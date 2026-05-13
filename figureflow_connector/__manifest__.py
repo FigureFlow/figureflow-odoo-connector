@@ -46,7 +46,7 @@ through your FigureFlow subscription.
         "views/res_config_settings_views.xml",
         "views/figureflow_menu.xml",
     ],
-    "images": ["static/description/images/main_screenshot.png"],
+    "images": ["static/description/images/cover.png"],
     "installable": True,
     "application": True,
     "auto_install": False,
