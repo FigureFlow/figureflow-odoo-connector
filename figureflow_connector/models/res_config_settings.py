@@ -2,10 +2,11 @@
 
 The Connect action generates a personal Odoo API key for the current user,
 performs a server-to-server handshake with FigureFlow's marketplace
-``initiate`` endpoint, receives a single-use claim_code, and opens the
-user's browser to FigureFlow to complete signup/login. Credentials never
-travel through the browser; the claim_code is the only thing the browser
-sees and it is single-use with a short TTL on the FigureFlow side.
+``initiate`` endpoint on the API host, receives a single-use claim_code,
+and opens the user's browser to FigureFlow's web app to complete
+signup/login. Credentials never travel through the browser; the
+claim_code is the only thing the browser sees and it is single-use with
+a short TTL on the FigureFlow side.
 """
 
 import logging
@@ -18,24 +19,33 @@ from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
-FIGUREFLOW_BASE_URL_PARAM = "figureflow_connector.base_url"
+FIGUREFLOW_API_URL_PARAM = "figureflow_connector.api_url"
+FIGUREFLOW_WEB_URL_PARAM = "figureflow_connector.web_url"
 FIGUREFLOW_CONNECTION_STATUS_PARAM = "figureflow_connector.connection_status"
 FIGUREFLOW_CLAIM_CODE_PARAM = "figureflow_connector.last_claim_code"
 FIGUREFLOW_API_KEY_ID_PARAM = "figureflow_connector.api_key_id"
 
-DEFAULT_BASE_URL = "https://app.figureflow.app"
+DEFAULT_API_URL = "https://api.figureflow.app"
+DEFAULT_WEB_URL = "https://web.figureflow.app"
 INITIATE_TIMEOUT_SECONDS = 30
 
 
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    figureflow_base_url = fields.Char(
-        string="FigureFlow URL",
-        config_parameter=FIGUREFLOW_BASE_URL_PARAM,
-        default=DEFAULT_BASE_URL,
-        help="Base URL of the FigureFlow instance this connector talks to. "
+    figureflow_api_url = fields.Char(
+        string="FigureFlow API URL",
+        config_parameter=FIGUREFLOW_API_URL_PARAM,
+        default=DEFAULT_API_URL,
+        help="Backend API endpoint this connector calls server-to-server. "
              "Change only if you're connecting to a non-production environment.",
+    )
+    figureflow_web_url = fields.Char(
+        string="FigureFlow Web URL",
+        config_parameter=FIGUREFLOW_WEB_URL_PARAM,
+        default=DEFAULT_WEB_URL,
+        help="FigureFlow web app the user's browser is redirected to after "
+             "the handshake. Change only for non-production environments.",
     )
     figureflow_connection_status = fields.Char(
         string="Connection Status",
@@ -80,7 +90,8 @@ class ResConfigSettings(models.TransientModel):
         the browser to the marketplace claim page."""
         self.ensure_one()
 
-        base_url = (self.figureflow_base_url or DEFAULT_BASE_URL).rstrip("/")
+        api_url = (self.figureflow_api_url or DEFAULT_API_URL).rstrip("/")
+        web_url = (self.figureflow_web_url or DEFAULT_WEB_URL).rstrip("/")
         domain = self._figureflow_resolve_odoo_domain()
         if not domain:
             raise UserError(_(
@@ -103,16 +114,16 @@ class ResConfigSettings(models.TransientModel):
         }
         try:
             response = requests.post(
-                f"{base_url}/api/integrations/odoo/marketplace/initiate/",
+                f"{api_url}/api/integrations/odoo/marketplace/initiate/",
                 json=payload,
                 timeout=INITIATE_TIMEOUT_SECONDS,
             )
         except requests.RequestException as exc:
             _logger.warning("FigureFlow initiate request failed: %s", exc)
             raise UserError(_(
-                "Could not reach FigureFlow at %(url)s. Check the FigureFlow URL "
-                "in settings and your network connection.",
-                url=base_url,
+                "Could not reach FigureFlow at %(url)s. Check the FigureFlow "
+                "API URL in settings and your network connection.",
+                url=api_url,
             )) from exc
 
         if response.status_code == 401:
@@ -147,7 +158,7 @@ class ResConfigSettings(models.TransientModel):
         query = urlencode({"claim": claim_code})
         return {
             "type": "ir.actions.act_url",
-            "url": f"{base_url}/connect-odoo?{query}",
+            "url": f"{web_url}/connect-odoo?{query}",
             "target": "new",
         }
 
@@ -189,10 +200,10 @@ class ResConfigSettings(models.TransientModel):
     def action_figureflow_open_dashboard(self):
         """Open the FigureFlow dashboard in a new tab."""
         self.ensure_one()
-        base_url = (self.figureflow_base_url or DEFAULT_BASE_URL).rstrip("/")
+        web_url = (self.figureflow_web_url or DEFAULT_WEB_URL).rstrip("/")
         return {
             "type": "ir.actions.act_url",
-            "url": base_url,
+            "url": web_url,
             "target": "new",
         }
 

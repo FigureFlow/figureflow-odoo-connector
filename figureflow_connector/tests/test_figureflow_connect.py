@@ -40,9 +40,15 @@ class TestFigureFlowConnect(TransactionCase):
         self.assertIn("claim=abc-123", action["url"])
         self.assertEqual(action["target"], "new")
 
-        # The handshake POSTed to the correct endpoint with the expected fields.
+        # Browser redirect uses the WEB host, never the API host.
+        self.assertIn("web.figureflow.app", action["url"])
+        self.assertNotIn("api.figureflow.app", action["url"])
+
+        # The handshake POSTed to the API host, not the web host.
         url_arg, kwargs = mock_post.call_args.args[0], mock_post.call_args.kwargs
         self.assertTrue(url_arg.endswith("/api/integrations/odoo/marketplace/initiate/"))
+        self.assertIn("api.figureflow.app", url_arg)
+        self.assertNotIn("web.figureflow.app", url_arg)
         payload = kwargs["json"]
         self.assertEqual(payload["domain"], "acme.odoo.com")
         self.assertEqual(payload["username"], self.env.user.login)
