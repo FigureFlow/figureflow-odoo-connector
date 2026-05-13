@@ -46,7 +46,7 @@
                                     your chart of accounts, journal entries,
                                     partners and invoices. Nothing is sent
                                     before you click Connect. See the
-                                    <a href="https://www.figureflow.com/privacy"
+                                    <a href="https://www.figureflow.app/privacy"
                                        target="_blank">privacy policy</a>.
                                 </p>
                             </div>
@@ -54,7 +54,7 @@
                         <setting id="figureflow_base_url_setting"
                                  string="FigureFlow URL"
                                  help="Change only if you're connecting to a non-production FigureFlow environment.">
-                            <field name="figureflow_base_url" placeholder="https://app.figureflow.com"/>
+                            <field name="figureflow_base_url" placeholder="https://app.figureflow.app"/>
                         </setting>
                     </block>
                 </app>

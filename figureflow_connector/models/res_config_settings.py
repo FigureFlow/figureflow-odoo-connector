@@ -23,7 +23,7 @@ FIGUREFLOW_CONNECTION_STATUS_PARAM = "figureflow_connector.connection_status"
 FIGUREFLOW_CLAIM_CODE_PARAM = "figureflow_connector.last_claim_code"
 FIGUREFLOW_API_KEY_ID_PARAM = "figureflow_connector.api_key_id"
 
-DEFAULT_BASE_URL = "https://app.figureflow.com"
+DEFAULT_BASE_URL = "https://app.figureflow.app"
 INITIATE_TIMEOUT_SECONDS = 30
 
 

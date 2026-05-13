@@ -2,7 +2,7 @@
 
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-Bridges a customer's Odoo instance to [FigureFlow](https://www.figureflow.com),
+Bridges a customer's Odoo instance to [FigureFlow](https://www.figureflow.app),
 an AI-powered financial management platform.
 
 ## Branch layout
