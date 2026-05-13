@@ -23,7 +23,7 @@ The Connect action:
 2. POSTs ``{domain, db, username, api_key}`` to FigureFlow's marketplace
    handshake endpoint (``/api/integrations/odoo/marketplace/initiate/``).
 3. Receives a single-use ``claim_code`` (TTL: 15 minutes).
-4. Opens the user's browser to ``figureflow.com/connect-odoo?claim=...``.
+4. Opens the user's browser to ``figureflow.app/connect-odoo?claim=...``.
 5. The user signs up or logs in on FigureFlow, which completes the
    handshake and triggers the initial data sync.
 
@@ -65,4 +65,4 @@ This branch targets Odoo 18.0. Parallel branches exist for 17.0 and 19.0.
 Support
 -------
 
-support@figureflow.com
+support@figureflow.app

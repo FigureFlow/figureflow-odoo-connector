@@ -22,7 +22,7 @@ Data sent to FigureFlow
 -----------------------
 
 When you click Connect, this module generates a personal Odoo API key and
-shares it with figureflow.com together with your Odoo URL, database name
+shares it with figureflow.app together with your Odoo URL, database name
 and login. FigureFlow uses these credentials to read accounting data from
 your Odoo. Nothing is sent until you explicitly click Connect, and you can
 revoke access at any time by removing the API key from your Odoo user
@@ -35,8 +35,8 @@ This connector is free. FigureFlow's AI features are billed separately
 through your FigureFlow subscription.
 """,
     "author": "FigureFlow",
-    "website": "https://www.figureflow.com",
-    "support": "support@figureflow.com",
+    "website": "https://www.figureflow.app",
+    "support": "support@figureflow.app",
     "license": "LGPL-3",
     "category": "Accounting/Accounting",
     "depends": ["base", "account"],
