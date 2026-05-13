@@ -66,10 +66,12 @@ Odoo API key the connector hands off.
 ## Submission to Odoo Apps
 
 1. Push to a Git repo and register it at https://apps.odoo.com/apps/upload
-2. `static/description/icon.png` is the FigureFlow brand mark (180×180).
-   Replace `static/description/images/main_screenshot.png` (currently the
-   FigureFlow wordmark, 430×162) with a real 1200×675 product screenshot
-   showing the Connect flow or FigureFlow dashboard before submission.
+2. `static/description/icon.png` is the FigureFlow sidebar mark (256×256
+   rasterized from the canonical SVG).
+   `static/description/images/main_screenshot.png` is the FigureFlow
+   sidebar wordmark (1200×258). Replace the main screenshot with a real
+   1200×675 product screenshot showing the Connect flow or FigureFlow
+   dashboard before submission.
 3. Submit each version branch separately.
 
 ## License
