@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- AIDEV-NOTE: Data-only module (no Python) so it installs on Odoo
+         Online and earns the Online compatibility tick. Odoo SaaS rejects
+         third-party modules that contain business Python, so the connect
+         flow cannot generate an API key or call FigureFlow server-to-server
+         from inside Odoo. Instead, Connect is a plain URL action that opens
+         the FigureFlow web app, where the user connects their Odoo by
+         entering an API key they create under My Profile > Account Security.
+         The same module works unchanged on Odoo Online, Odoo.sh and
+         On-Premise. -->
+    <record id="action_figureflow_connect_url" model="ir.actions.act_url">
+        <field name="name">Connect to FigureFlow</field>
+        <field name="url">https://web.figureflow.app/connect-odoo</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_figureflow_dashboard_url" model="ir.actions.act_url">
+        <field name="name">Open FigureFlow Dashboard</field>
+        <field name="url">https://web.figureflow.app</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_figureflow_privacy_url" model="ir.actions.act_url">
+        <field name="name">Privacy &amp; Data Usage</field>
+        <field name="url">https://www.figureflow.app/privacy</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
