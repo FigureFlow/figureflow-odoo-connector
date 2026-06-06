@@ -1,6 +1,6 @@
 {
     "name": "FigureFlow AI Accounting",
-    "version": "14.0.1.0.0",
+    "version": "14.0.2.0.0",
     "summary": "Eliminate Financial Blind Spots with FigureFlow — AI-driven "
                "reconciliation, month-end close, KPIs and cash forecasting.",
     "description": """
@@ -8,9 +8,8 @@ FigureFlow Connector
 ====================
 
 Bridges your Odoo instance to FigureFlow, an AI-powered financial management
-platform. After installing this module and clicking Connect, your chart of
-accounts, journal entries, partners and invoices are securely synced to
-FigureFlow where AI agents handle:
+platform. Once connected, your chart of accounts, journal entries, partners
+and invoices are securely synced to FigureFlow where AI agents handle:
 
 - Bank reconciliation and adjustment proposals
 - Month-end close workflows
@@ -18,15 +17,28 @@ FigureFlow where AI agents handle:
 - Cash-flow forecasting
 - Management and annual reports
 
+Connecting to FigureFlow
+------------------------
+
+Open the FigureFlow app in Odoo and click **Connect to FigureFlow**. This
+opens the FigureFlow web app in a new tab, where you connect your Odoo by
+providing an Odoo API key together with your Odoo URL and database name.
+You create the API key yourself under **My Profile > Account Security > New
+API Key** in Odoo, so the key is generated and held by you and never passes
+through your browser to anyone else.
+
 Data sent to FigureFlow
 -----------------------
 
-When you click Connect, this module generates a personal Odoo API key and
-shares it with figureflow.app together with your Odoo URL, database name
-and login. FigureFlow uses these credentials to read accounting data from
-your Odoo. Nothing is sent until you explicitly click Connect, and you can
-revoke access at any time by removing the API key from your Odoo user
-preferences and disconnecting in FigureFlow.
+FigureFlow uses the API key you provide to read your chart of accounts,
+journal entries, partners and invoices over Odoo's standard External API.
+Nothing is read from Odoo until you connect inside FigureFlow, and you can
+revoke access at any time by deleting the API key in your Odoo profile and
+disconnecting in FigureFlow.
+
+This module contains no server-side code: it adds the FigureFlow app entry
+and links out to the FigureFlow web app. It is therefore compatible with
+Odoo Online, Odoo.sh and On-Premise.
 
 Pricing
 -------
@@ -41,9 +53,7 @@ through your FigureFlow subscription.
     "category": "Accounting/Accounting",
     "depends": ["base", "account"],
     "data": [
-        "security/ir.model.access.csv",
-        "data/figureflow_data.xml",
-        "views/res_config_settings_views.xml",
+        "views/figureflow_actions.xml",
         "views/figureflow_menu.xml",
     ],
     "images": ["static/description/images/brand-cover.png"],
