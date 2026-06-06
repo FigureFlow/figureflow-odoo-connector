@@ -5,9 +5,21 @@
               web_icon="figureflow_connector,static/description/icon.png"
               sequence="100"/>
 
-    <menuitem id="menu_figureflow_settings"
-              name="Settings"
+    <menuitem id="menu_figureflow_connect"
+              name="Connect to FigureFlow"
               parent="menu_figureflow_root"
-              action="action_figureflow_settings"
+              action="action_figureflow_connect_url"
               sequence="10"/>
+
+    <menuitem id="menu_figureflow_dashboard"
+              name="Open FigureFlow Dashboard"
+              parent="menu_figureflow_root"
+              action="action_figureflow_dashboard_url"
+              sequence="20"/>
+
+    <menuitem id="menu_figureflow_privacy"
+              name="Privacy &amp; Data Usage"
+              parent="menu_figureflow_root"
+              action="action_figureflow_privacy_url"
+              sequence="30"/>
 </odoo>
