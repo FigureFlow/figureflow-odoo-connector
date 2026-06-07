@@ -1,6 +1,6 @@
 {
     "name": "FigureFlow AI Accounting",
-    "version": "17.0.2.0.0",
+    "version": "17.0.3.0.0",
     "summary": "Eliminate Financial Blind Spots with FigureFlow — AI-driven "
                "reconciliation, month-end close, KPIs and cash forecasting.",
     "description": """
@@ -57,6 +57,13 @@ through your FigureFlow subscription.
         "views/figureflow_menu.xml",
     ],
     "images": ["static/description/images/brand-cover.png"],
+    "assets": {
+        "web.assets_backend": [
+            "figureflow_connector/static/src/panel/panel_systray.scss",
+            "figureflow_connector/static/src/panel/panel_systray.xml",
+            "figureflow_connector/static/src/panel/panel_systray.js",
+        ],
+    },
     "installable": True,
     "application": True,
     "auto_install": False,
