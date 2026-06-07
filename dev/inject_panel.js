@@ -81,32 +81,37 @@
     if (open) { lastKey = null; post(); }
   };
 
-  function currentRecord() {
+  // Always report the instance (host) so the panel resolves the connected org
+  // and shows the chat everywhere; model/id are added only on a record form.
+  function currentContext() {
+    let model = "";
+    let id = "";
     try {
       const c = window.odoo?.__WOWL_DEBUG__?.root?.env?.services?.action
         ?.currentController;
       const p = c?.props;
       if (p?.resModel && p?.resId) {
-        return {
-          source: "odoo",
-          model: p.resModel,
-          id: String(p.resId),
-          instanceHint: { host: location.host, db: window.odoo?.info?.db || "" },
-        };
+        model = p.resModel;
+        id = String(p.resId);
       }
     } catch (e) {
-      /* debug mode off — fall through */
+      /* debug mode off — instance-only resolve still works */
     }
-    return null;
+    return {
+      source: "odoo",
+      model: model,
+      id: id,
+      instanceHint: { host: location.host, db: window.odoo?.info?.db || "" },
+    };
   }
 
   function post() {
     if (!ready) return;
-    const r = currentRecord();
-    const key = r ? `${r.model}:${r.id}` : "none";
+    const ctx = currentContext();
+    const key = ctx.model + ":" + ctx.id;
     if (key === lastKey) return;
     lastKey = key;
-    frame.contentWindow?.postMessage({ type: "FF_RECORD", record: r }, ORIGIN);
+    frame.contentWindow?.postMessage({ type: "FF_RECORD", record: ctx }, ORIGIN);
   }
 
   window.addEventListener("message", (e) => {
