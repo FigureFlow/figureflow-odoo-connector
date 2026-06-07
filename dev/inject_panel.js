@@ -60,7 +60,7 @@
   const drawer = document.createElement("div");
   Object.assign(drawer.style, {
     position: "fixed", top: "0", right: "0", height: "100vh",
-    width: "400px", maxWidth: "92vw", zIndex: "2147483646",
+    width: "480px", maxWidth: "94vw", zIndex: "2147483646",
     boxShadow: "-8px 0 28px rgba(0,0,0,.35)", background: "#0e1a2b",
     transform: "translateX(100%)", transition: "transform .18s ease",
   });
