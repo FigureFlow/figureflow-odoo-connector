@@ -1,6 +1,6 @@
 {
     "name": "FigureFlow AI Accounting",
-    "version": "18.0.2.0.0",
+    "version": "18.0.3.0.0",
     "summary": "Eliminate Financial Blind Spots with FigureFlow — AI-driven "
                "reconciliation, month-end close, KPIs and cash forecasting.",
     "description": """
@@ -36,9 +36,19 @@ Nothing is read from Odoo until you connect inside FigureFlow, and you can
 revoke access at any time by deleting the API key in your Odoo profile and
 disconnecting in FigureFlow.
 
-This module contains no server-side code: it adds the FigureFlow app entry
-and links out to the FigureFlow web app. It is therefore compatible with
-Odoo Online, Odoo.sh and On-Premise.
+Working inside Odoo
+-------------------
+
+Once connected, a FigureFlow button in the systray opens a Copilot panel
+docked on the right of Odoo. It is record-aware: open a journal entry,
+invoice or partner and ask FigureFlow to explain it, reconcile it, reclassify
+it or draft a report — without leaving Odoo. The panel is the FigureFlow chat
+embedded as a secure iframe; you sign in to FigureFlow from inside it.
+
+This module contains no server-side code: it adds the FigureFlow app entry,
+links out to the FigureFlow web app, and embeds the Copilot panel using
+client-side web assets only. It is therefore compatible with Odoo Online,
+Odoo.sh and On-Premise.
 
 Pricing
 -------
@@ -56,6 +66,17 @@ through your FigureFlow subscription.
         "views/figureflow_actions.xml",
         "views/figureflow_menu.xml",
     ],
+    # AIDEV-NOTE: Web-asset JS only (OWL) — no server-side Python — so the
+    # in-Odoo Copilot panel stays compatible with Odoo Online. It embeds the
+    # FigureFlow panel (web.figureflow.app/embed/panel) as a record-aware
+    # iframe; auth + chat run inside that iframe.
+    "assets": {
+        "web.assets_backend": [
+            "figureflow_connector/static/src/panel/panel_systray.scss",
+            "figureflow_connector/static/src/panel/panel_systray.xml",
+            "figureflow_connector/static/src/panel/panel_systray.js",
+        ],
+    },
     "images": ["static/description/images/brand-cover.png"],
     "installable": True,
     "application": True,
