@@ -8,7 +8,11 @@
                 title="FigureFlow Copilot"
                 t-on-click="toggle"
             >
-                <span class="ff-panel__mark">◆</span>
+                <img
+                    class="ff-panel__icon"
+                    src="/figureflow_connector/static/description/icon.png"
+                    alt="FigureFlow"
+                />
             </button>
 
             <div

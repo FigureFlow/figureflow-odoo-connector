@@ -25,8 +25,11 @@ $ff-drawer-width: 400px;
         }
     }
 
-    &__mark {
-        color: #7c3aed;
+    &__icon {
+        width: 22px;
+        height: 22px;
+        display: block;
+        border-radius: 5px;
     }
 
     &__drawer {
