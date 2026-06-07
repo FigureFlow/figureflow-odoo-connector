@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="figureflow_connector.Panel">
+        <div class="ff-panel">
+            <button
+                class="ff-panel__toggle"
+                type="button"
+                title="FigureFlow Copilot"
+                t-on-click="toggle"
+            >
+                <span class="ff-panel__mark">◆</span>
+            </button>
+
+            <div
+                class="ff-panel__drawer"
+                t-att-class="{ 'ff-panel__drawer--open': state.open }"
+            >
+                <div class="ff-panel__head">
+                    <span class="ff-panel__title">◆ FigureFlow</span>
+                    <button
+                        class="ff-panel__close"
+                        type="button"
+                        t-on-click="toggle"
+                    >×</button>
+                </div>
+                <iframe
+                    t-if="state.loaded"
+                    t-ref="iframe"
+                    class="ff-panel__frame"
+                    t-att-src="panelUrl"
+                    allow="clipboard-write"
+                />
+            </div>
+        </div>
+    </t>
+</templates>
